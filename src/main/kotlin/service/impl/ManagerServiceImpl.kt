@@ -20,7 +20,7 @@ import util.TransactionManager
 class ManagerServiceImpl :ManagerService{
     var managerDao = ManagerDaoImpl()
 
-    override fun login(manager: Manager): Boolean {
+    override fun login(manager: Manager): Manager {
         try {
             //开启事务
             TransactionManager.begin()
@@ -28,8 +28,12 @@ class ManagerServiceImpl :ManagerService{
 
             var src = manager.password
 
-            return Md5Util.checkPassword(src,manager.password)
-
+           if (Md5Util.checkPassword(src,manager.password)) {
+               manager.password = "true"
+               return manager
+           }
+            manager.password = "false"
+            return manager
             //提交事务
             TransactionManager.commit()
 

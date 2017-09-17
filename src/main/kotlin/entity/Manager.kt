@@ -11,7 +11,7 @@ package entity
 
 class Manager(
         val username: String,
-        val password: String
+        var password: String
 ) {
 
 }

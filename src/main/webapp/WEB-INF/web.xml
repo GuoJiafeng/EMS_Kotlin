@@ -4,15 +4,18 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
     <servlet>
+        <description>显示所有人</description>
         <servlet-name>ShowAllEmpAction</servlet-name>
         <servlet-class>action.ShowAllEmpAction</servlet-class>
     </servlet>
     <servlet-mapping>
+
         <servlet-name>ShowAllEmpAction</servlet-name>
         <url-pattern>/ShowAllEmpAction</url-pattern>
     </servlet-mapping>
 
     <servlet>
+        <description>显示一个人</description>
         <servlet-name>ShowOneEmpAction</servlet-name>
         <servlet-class>action.ShowOneEmpAction</servlet-class>
     </servlet>
@@ -23,6 +26,7 @@
 
 
     <servlet>
+        <description>删除一个人</description>
         <servlet-name>DeleteEmpAction</servlet-name>
         <servlet-class>action.DeleteEmpAction</servlet-class>
     </servlet>
@@ -30,4 +34,35 @@
         <servlet-name>DeleteEmpAction</servlet-name>
         <url-pattern>/DeleteEmpAction</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <description>添加一个人</description>
+        <servlet-name>InsertEmpAction</servlet-name>
+        <servlet-class>action.InsertEmpAction</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>InsertEmpAction</servlet-name>
+        <url-pattern>/InsertEmpAction</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <description>d登录</description>
+        <servlet-name>LoginAction</servlet-name>
+        <servlet-class>action.LoginAction</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginAction</servlet-name>
+        <url-pattern>/LoginAction</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <description>注册</description>
+        <servlet-name>RegistAction</servlet-name>
+        <servlet-class>action.RegistAction</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegistAction</servlet-name>
+        <url-pattern>/RegistAction</url-pattern>
+    </servlet-mapping>
+
+
 </web-app>
