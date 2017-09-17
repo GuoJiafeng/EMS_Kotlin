@@ -26,6 +26,13 @@ import java.util.*
             }
             return "未婚"
         }
+     var getIsTrue: Boolean
+         set(value) {
+            getIsTrue = value
+         }
+         get() {
+             return getIsTrue
+         }
 
      override fun toString(): String {
          return "Emp(id=$id, name='$name', Salary=$Salary, hireDate=$hireDate, married=$married, deptName='$deptName')"

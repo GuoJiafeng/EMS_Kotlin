@@ -11,4 +11,23 @@
         <servlet-name>ShowAllEmpAction</servlet-name>
         <url-pattern>/ShowAllEmpAction</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ShowOneEmpAction</servlet-name>
+        <servlet-class>action.ShowOneEmpAction</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ShowOneEmpAction</servlet-name>
+        <url-pattern>/ShowOneEmpAction</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>DeleteEmpAction</servlet-name>
+        <servlet-class>action.DeleteEmpAction</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteEmpAction</servlet-name>
+        <url-pattern>/DeleteEmpAction</url-pattern>
+    </servlet-mapping>
 </web-app>

@@ -1,7 +1,12 @@
 package service.impl
 
+import dao.impl.EmpDaoImpl
+import dao.impl.ManagerDaoImpl
+import entity.Emp
 import entity.Manager
 import service.ManagerService
+import util.Md5Util
+import util.TransactionManager
 
 /*
    @Author :Create by Guo Jiafeng
@@ -13,12 +18,54 @@ import service.ManagerService
 */
 
 class ManagerServiceImpl :ManagerService{
-    override fun login(usernmae: String): Manager {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    var managerDao = ManagerDaoImpl()
+
+    override fun login(manager: Manager): Boolean {
+        try {
+            //开启事务
+            TransactionManager.begin()
+            var manager: Manager = managerDao.queryManagerByUsername(manager.username)
+
+            var src = manager.password
+
+            return Md5Util.checkPassword(src,manager.password)
+
+            //提交事务
+            TransactionManager.commit()
+
+        } catch (e: Exception) {
+            try {
+                //回滚事务
+                TransactionManager.rollback()
+            } catch (ee: Exception) {
+            }
+
+            throw RuntimeException(e.message)
+        }
+
     }
 
     override fun regist(manager: Manager) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
+        try {
+            //开启事务
+            TransactionManager.begin()
+            managerDao.insertManager(manager)
+
+
+            //提交事务
+            TransactionManager.commit()
+
+        } catch (e: Exception) {
+            try {
+                //回滚事务
+                TransactionManager.rollback()
+            } catch (ee: Exception) {
+            }
+
+            throw RuntimeException(e.message)
+        }
+
     }
 
 }

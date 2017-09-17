@@ -13,6 +13,6 @@ import entity.Manager
 
 interface ManagerService{
 
-    abstract fun login(usernmae: String): Manager
+    abstract fun login(manager: Manager): Boolean
     abstract fun regist(manager: Manager)
 }
